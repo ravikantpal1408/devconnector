@@ -1,6 +1,6 @@
-import { GET_PROFILE, GET_ERRORS, PROFILE_LOADING, CLEAR_CURRENT_PROFILE } from './types';
-import setAuthToken from '../utils/setAuthToken';
-import jwt_decode from 'jwt-decode';
+import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE } from './types';
+// import setAuthToken from '../utils/setAuthToken';
+// import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 
 
@@ -27,7 +27,6 @@ export const setProfileLoading = () => {
         type: PROFILE_LOADING
     }
 }
-
 
 
 // clear profile  
