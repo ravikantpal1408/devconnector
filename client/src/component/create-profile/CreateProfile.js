@@ -177,13 +177,15 @@ class CreateProfile extends Component {
                                     info="Tell us a little about yourself" />
 
                                 <div className="mb-3">
-                                    <a className="btn btn-light" onClick={() => {
-                                        this.setState(prevState => ({
-                                            displaySocialInputs: !prevState.displaySocialInputs
-                                        }))
-                                    }}>
+                                    <span className="btn btn-light"
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={() => {
+                                            this.setState(prevState => ({
+                                                displaySocialInputs: !prevState.displaySocialInputs
+                                            }))
+                                        }}>
                                         Add Social Network Links
-                                    </a>
+                                    </span>
                                     <span className="text-muted">Optional</span>
                                 </div>
                                 {socialInputs}

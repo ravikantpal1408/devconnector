@@ -21,10 +21,10 @@ class Navbar extends Component {
         const authLinks = (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <a style={{ cursor: 'pointer' }} onClick={this.onLogoutClick.bind(this)} className="nav-link" >
+                    <span style={{ cursor: 'pointer' }} onClick={this.onLogoutClick.bind(this)} className="nav-link" >
 
                         <img className="rounded-circle" src={user.avatar} alt="user.name" title="gravatar" style={{ cursor: 'pointer', width: '25px', marginRight: '5px' }} />
-                        {' '} Logout</a>
+                        {' '} Logout</span>
 
                 </li>
 

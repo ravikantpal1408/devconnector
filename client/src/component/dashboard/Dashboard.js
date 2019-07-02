@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 class Dashboard extends Component {
 
     componentDidMount() {
-        if (!this.props.auth.isAuthenticated) {
-            this.props.history.push('/')
-        }
+        // if (!this.props.auth.isAuthenticated) {
+        //     this.props.history.push('/')
+        // }
         this.props.getCurrentProfile();
     }
 
