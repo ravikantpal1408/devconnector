@@ -126,6 +126,9 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     if (req.body.status) {
         profileFields.status = req.body.status;
     }
+    if (req.body.bio) {
+        profileFields.bio = req.body.bio;
+    }
     if (req.body.githubusername) {
         profileFields.githubusername = req.body.githubusername;
     }
@@ -171,7 +174,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 // @desc add experience to profile
 // @access Private
 router.post('/experience', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
+
     const { errors, isValid } = validateExperienceInput(req.body);
 
     // check validation
@@ -203,7 +206,7 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
 // @desc add experience to profile
 // @access Private
 router.post('/education', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
+
     const { errors, isValid } = validateEducationInput(req.body);
 
     // check validation
@@ -228,7 +231,7 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
 
             profile.save().then(profile = res.json(profile));
         }).catch(err => {
-            return res.status(400).json({ msg: err})
+            return res.status(400).json({ msg: err })
         })
 });
 
@@ -238,21 +241,21 @@ router.post('/education', passport.authenticate('jwt', { session: false }), (req
 // @desc delete experience from profile
 // @access Private
 router.delete('/experience/:exp_id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
-  
+
+
     Profile.findOne({ user: req.user.id })
         .then(profile => {
             // get remove index
             const removeIndex = profile.experience
-                    .map(item => item.id)
-                    .indexOf(req.params.exp_id);
+                .map(item => item.id)
+                .indexOf(req.params.exp_id);
 
 
-            
-            if(removeIndex === -1) {
-                return res.status(404).json({ error: "No Experience of this Experience Id exists"});
-            }  
-        
+
+            if (removeIndex === -1) {
+                return res.status(404).json({ error: "No Experience of this Experience Id exists" });
+            }
+
             // splice out of array
             profile.experience.splice(removeIndex, 1);
 
@@ -260,7 +263,7 @@ router.delete('/experience/:exp_id', passport.authenticate('jwt', { session: fal
             profile.save().then(profile => res.json(profile));
 
         }).catch(err => {
-            return res.status(404).json({ msg: err})
+            return res.status(404).json({ msg: err })
         })
 });
 
@@ -269,19 +272,19 @@ router.delete('/experience/:exp_id', passport.authenticate('jwt', { session: fal
 // @desc delete education from profile
 // @access Private
 router.delete('/education/:edu_id', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
-  
+
+
     Profile.findOne({ user: req.user.id })
         .then(profile => {
             // get remove index
             const removeIndex = profile.education
-                    .map(item => item.id)
-                    .indexOf(req.params.edu_id);
+                .map(item => item.id)
+                .indexOf(req.params.edu_id);
 
 
-            if(removeIndex === -1) {
-                return res.status(404).json({ error: "No education of this edu Id exists"});
-            }        
+            if (removeIndex === -1) {
+                return res.status(404).json({ error: "No education of this edu Id exists" });
+            }
             // splice out of array
             profile.education.splice(removeIndex, 1);
 
@@ -289,7 +292,7 @@ router.delete('/education/:edu_id', passport.authenticate('jwt', { session: fals
             profile.save().then(profile => res.json(profile));
 
         }).catch(err => {
-            return res.status(404).json({ msg: err})
+            return res.status(404).json({ msg: err })
         })
 });
 
@@ -299,12 +302,12 @@ router.delete('/education/:edu_id', passport.authenticate('jwt', { session: fals
 // @desc delete profile
 // @access Private
 router.delete('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    
-  Profile.findOneAndRemove({ user: req.user.id })
-         .then(()=>{
-             User.findOneAndRemove({ _id: req.user.id})
+
+    Profile.findOneAndRemove({ user: req.user.id })
+        .then(() => {
+            User.findOneAndRemove({ _id: req.user.id })
                 .then(() => res.json({ success: true }));
-         })
+        })
 });
 
 
