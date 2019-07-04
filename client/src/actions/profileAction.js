@@ -57,7 +57,7 @@ export const getProfiles = () => dispatch => {
     axios
         .get('/api/profile/all')
         .then(res => {
-            console.log(res)
+
             dispatch({
                 type: GET_PROFILES,
                 payload: res.data
@@ -144,3 +144,21 @@ export const clearCurrentProfile = () => {
         type: CLEAR_CURRENT_PROFILE
     }
 }
+
+
+// get profile by handle
+export const getProfileByHandle = (handle) => dispatch => {
+
+    axios.get('/api/profile/handle/' + handle)
+        .then(res => dispatch({
+            type: GET_PROFILE,
+            payload: res.data
+        }))
+        .catch(err => {
+            dispatch({
+                type: GET_PROFILE,
+                payload: null
+            })
+        })
+}
+
