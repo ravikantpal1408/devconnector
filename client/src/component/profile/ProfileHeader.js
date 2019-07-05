@@ -23,28 +23,28 @@ class ProfileHeader extends Component {
                                     <p>{isEmpty(profile.location) ? null : (<span>at {profile.location}</span>)}</p>
                                     <p>
                                         {isEmpty(profile.website) ? null :
-                                            (<a className="text-white p-2" href={profile.website}>
+                                            (<a className="text-white p-2" target="_blank" rel="noopener noreferrer" href={profile.website}>
                                                 <i className="fa fa-globe fa-2x"></i>
                                             </a>)
                                         }
 
                                         {isEmpty(profile.social && profile.social.twitter) ? null :
-                                            (<a className="text-white p-2" href={profile.social.twitter}>
+                                            (<a className="text-white p-2" target="_blank" rel="noopener noreferrer" href={profile.social.twitter}>
                                                 <i className="fa fa-twitter fa-2x"></i>
                                             </a>)
                                         }
                                         {isEmpty(profile.social && profile.social.facebook) ? null :
-                                            (<a className="text-white p-2" href={profile.social.facebook}>
+                                            (<a className="text-white p-2" target="_blank" rel="noopener noreferrer" href={profile.social.facebook}>
                                                 <i className="fa fa-facebook fa-2x"></i>
                                             </a>)
                                         }
                                         {isEmpty(profile.social && profile.social.linkedin) ? null :
-                                            (<a className="text-white p-2" href={profile.social.linkedin}>
+                                            (<a className="text-white p-2" target="_blank" rel="noopener noreferrer" href={profile.social.linkedin}>
                                                 <i className="fa fa-linkedin fa-2x"></i>
                                             </a>)
                                         }
                                         {isEmpty(profile.social && profile.social.instagram) ? null :
-                                            (<a className="text-white p-2" href={profile.social.instagram}>
+                                            (<a className="text-white p-2" target="_blank" rel="noopener noreferrer" href={profile.social.instagram}>
                                                 <i className="fa fa-instagram fa-2x"></i>
                                             </a>)
                                         }

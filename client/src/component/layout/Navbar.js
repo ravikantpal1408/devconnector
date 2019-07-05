@@ -30,7 +30,7 @@ class Navbar extends Component {
                         <img
                             className="rounded-circle"
                             src={user.avatar}
-                            alt="user.name"
+                            alt={user.name}
                             title="gravatar"
                             style={{ cursor: 'pointer', width: '25px', marginRight: '5px' }} />
                         {' '} Logout
