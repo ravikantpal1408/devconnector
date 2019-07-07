@@ -32,11 +32,16 @@ class ProfileGithub extends Component {
     render() {
 
         const { repos } = this.state;
-        console.log('github repos', repos)
 
         let reposItems;
         if (repos.message === 'Not Found') {
-            reposItems = <h2>No Repository Found</h2>;
+            reposItems = (<div className="card card-body mb-2">
+                <div className="row">
+                    <div className="col-md-12 m-auto">
+                        <h4 className="display-4"> NO REPOSITORY FOUND </h4>
+                    </div>
+                </div>
+            </div>);
         } else {
 
 
