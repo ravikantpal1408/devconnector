@@ -6,7 +6,7 @@ import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
 import ProfileGithub from './ProfileGithub';
 import Spinner from '../common/Spinner';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { getProfileByHandle } from '../../actions/profileAction';
 
 class Profile extends Component {
@@ -39,7 +39,7 @@ class Profile extends Component {
                 <div>
                     <div className="row">
                         <div className="col-md-6">
-                            <Link to="/profiles" className="btn btn-light mb-3 float-left" >Back To Profiles</Link>
+                            <a href="/profiles" className="btn btn-light mb-3 float-left" >Back To Profiles</a>
                         </div>
                         <div className="col-md-6" />
                     </div>
