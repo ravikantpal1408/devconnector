@@ -20,7 +20,7 @@ class Profile extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // console.log(this.props.profile.loading)
+
         if (nextProps.profile.profile === null) {
             this.props.history.push('/not-found');
         }
