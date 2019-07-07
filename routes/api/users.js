@@ -26,6 +26,24 @@ router.get('/test', (req, res) => {
     res.json({ message: "Users works" });
 });
 
+// @route POST api/users/verify
+// @desc verify user to reset password
+// @access private 
+router.post('/verify', (req, res) => {
+
+    jwt.sign(
+        payload,
+        keys.secretOrKey,
+        { expiresIn: 900 }, (err, token) => {
+            return res.json({
+                success: true,
+                token: 'Bearer ' + token
+            });
+        });
+})
+
+
+
 
 // @route POST api/users/recover
 // @desc Recover account using email
@@ -230,13 +248,3 @@ function makeid(length) {
     }
     return result;
 }
-
-
-function deleteAuthToken(userId, email) {
-
-    Recover.deleteMany({ userid: userId, email: email }).then(recover => {
-        console.log('all id ============>', recover);
-
-    });
-}
-

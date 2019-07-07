@@ -29,13 +29,11 @@ class ProfileGithub extends Component {
             }).catch(err => console.log(err))
     }
 
-    render() {
 
-        const { repos } = this.state;
+    loadMyRepos(repos) {
 
-        let reposItems;
         if (repos.message === 'Not Found') {
-            reposItems = (<div className="card card-body mb-2">
+            return (<div className="card card-body mb-2">
                 <div className="row">
                     <div className="col-md-12 m-auto">
                         <h4 className="display-4"> NO REPOSITORY FOUND </h4>
@@ -45,7 +43,7 @@ class ProfileGithub extends Component {
         } else {
 
 
-            reposItems = repos.map(repo => (
+            return repos.map(repo => (
                 <div key={repo.id} className="card card-body mb-2">
                     <div className="row">
                         <div className="col-md-6">
@@ -68,6 +66,13 @@ class ProfileGithub extends Component {
                 </div>
             ))
         }
+    }
+
+    render() {
+
+        const { repos } = this.state;
+
+        let reposItems = this.loadMyRepos(repos);
         return (
             <div ref="myRef">
                 <hr />
