@@ -62,6 +62,7 @@ class Navbar extends Component {
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
                     <div className="container">
+                        <i className="fa fa-deviantart pr-1 fa-2x" style={{ color: '#17a2b8' }}></i>
                         <Link className="navbar-brand" to="/" >Dev-Connector</Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                             <span className="navbar-toggler-icon"></span>
