@@ -22,6 +22,7 @@ const InputGroup = ({
             </div>
 
             <input type={type}
+                maxLength="50"
                 className={classnames('form-control form-control-lg', { 'is-invalid': error })}
                 placeholder={placeholder}
                 name={name}
