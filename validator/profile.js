@@ -17,14 +17,25 @@ module.exports = function validateProfileInput(data) {
     if (Validator.isEmpty(data.handle)) {
         errors.handle = 'Profile handle is required';
     }
+    if (!Validator.isLength(data.handle, { min: 6, max: 50 })) {
+        errors.handle = 'Profile handle exceeds the character length';
+    }
 
     if (Validator.isEmpty(data.status)) {
         errors.status = 'Status field is required';
     }
 
+    if (!Validator.isLength(data.status, { min: 6, max: 50 })) {
+        errors.status = 'Status field exceeds the character length';
+    }
+
     if (Validator.isEmpty(data.skills)) {
         errors.skills = 'Skills field is required';
     }
+    if (!Validator.isLength(data.skills, { min: 1, max: 50 })) {
+        errors.skills = 'Skills field exceeds the character length';
+    }
+
 
     if (!isEmpty(data.website)) {
         if (!Validator.isURL(data.website)) {

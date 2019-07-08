@@ -49,7 +49,8 @@ class CreateProfile extends Component {
             const profile = nextProps.profile.profile;
 
             // bring skills array back to CSV
-            const skillsCSV = profile.skills.join(',');
+
+            const skillsCSV = Array.prototype.slice.call(profile.skills).join(',');
 
             profile.skills = !isEmpty(profile.company) ? skillsCSV : '';
 

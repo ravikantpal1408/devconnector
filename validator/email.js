@@ -12,6 +12,10 @@ module.exports = function validateEmailInput(data) {
     errors.email = 'Email is required';
   }
 
+  if (Validator.isLength(data.email, { min: 4, max: 50 })) {
+    errors.email = 'Email exceeds the character length';
+  }
+
   if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
   }
