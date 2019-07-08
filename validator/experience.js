@@ -13,11 +13,11 @@ module.exports = function validateExperienceInput(data) {
     errors.title = 'Job title is required';
   }
   if (!Validator.isLength(data.title, { min: 4, max: 50 })) {
-    errors.title = 'Job title exceeds the character length';
+    errors.title = 'Job title should be between 4 to 50';
   }
 
   if (!Validator.isLength(data.company, { min: 4, max: 50 })) {
-    errors.company = 'Company exceeds the character length';
+    errors.company = 'Company should be between 4 to 50';
   }
   if (Validator.isEmpty(data.company)) {
     errors.company = 'Company field is required';
