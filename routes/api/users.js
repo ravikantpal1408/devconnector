@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 const nodemailer = require('nodemailer');
-const keys = require('../config/keys');
+
 
 
 // load input validation 
