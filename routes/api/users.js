@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 const nodemailer = require('nodemailer');
+const keys = require('../config/keys');
 
 
 // load input validation 
@@ -64,8 +65,8 @@ router.post('/recover', (req, res) => {
                 var transporter = nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'btreravi123@gmail.com',
-                        pass: 'Asdzxc@987'
+                        user: keys.email,
+                        pass: keys.password
                     }
                 });
 

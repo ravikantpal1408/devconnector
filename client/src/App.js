@@ -25,6 +25,7 @@ import Profile from './component/profile/Profile';
 import NotFound from './component/not-found/NotFound';
 import Posts from './component/posts/Posts';
 import Post from './component/post/Post';
+import Recover from './component/recover/Recover';
 
 // check for token 
 if (localStorage.jwtToken) {
@@ -56,6 +57,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+
             <Route exact path="/" component={Landing} />
             <div className="container">
               <Route exact path="/register" component={Register} />
@@ -84,9 +86,15 @@ class App extends Component {
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
               <Route exact path="/not-found" component={NotFound} />
+              <Route exact path="/recover/:auth" component={Recover} />
+
+
+
+
             </div>
             <Footer />
           </div>
+
         </Router>
       </Provider>
     );

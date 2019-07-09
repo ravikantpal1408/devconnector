@@ -60,3 +60,11 @@ export const logoutUser = () => dispatch => {
     window.location.href = "/"
 
 }
+
+
+// get account for password reset
+export const checkAccount = (credentials) => dispatch => {
+    axios.post('/api/account/reset', credentials)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+}
