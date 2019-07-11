@@ -22,10 +22,10 @@ import AddExperience from './component/add-credentials/AddExperience';
 import AddEducation from './component/add-credentials/AddEducation';
 import Profiles from './component/profiles/Profiles';
 import Profile from './component/profile/Profile';
-import NotFound from './component/not-found/NotFound';
 import Posts from './component/posts/Posts';
 import Post from './component/post/Post';
 import Recover from './component/recover/Recover';
+import NotFound from './component/not-found/NotFound';
 
 // check for token 
 if (localStorage.jwtToken) {
@@ -52,6 +52,7 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
   render() {
+
     return (
       <Provider store={store}>
         <Router>
@@ -59,7 +60,7 @@ class App extends Component {
             <Navbar />
 
             <Route exact path="/" component={Landing} />
-            <div className="container">
+            <div className="container" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
@@ -85,18 +86,19 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
-              <Route exact path="/not-found" component={NotFound} />
-              <Route exact path="/recover/:auth" component={Recover} />
-
-
-
+              <Switch>
+                <Route exact path="/404" component={NotFound} />
+              </Switch>
+              <Switch>
+                <Route exact path="/recover/:auth" component={Recover} />
+              </Switch>
 
             </div>
             <Footer />
           </div>
 
         </Router>
-      </Provider>
+      </Provider >
     );
   }
 }

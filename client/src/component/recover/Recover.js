@@ -7,21 +7,16 @@ import { checkAccount } from '../../actions/authAction';
 class Recover extends Component {
 
   constructor(props) {
+
     super(props);
     this.state = {
       email: '',
       authId: this.props.match.params.auth
     };
-    console.log(this.props.match.params.auth)
-    this.props.history.push('/not-found');
-
-
   }
-  componentDidMount() {
 
-    if (!this.props.match.params.auth) {
-      this.props.history.push('/not-found');
-    }
+
+  componentDidMount() {
 
   }
 
@@ -29,9 +24,16 @@ class Recover extends Component {
 
 
   render() {
+    let content;
+    if (this.props.match.params.auth) {
+      console.log('params :', this.props.match.params.auth)
+      content = <h1>Hello</h1>
+    } else {
+      content = <h1>Not Found</h1>
+    }
     return (
       <div>
-        <h1>Recover My Email</h1>
+        {content}
       </div>
     )
   }
