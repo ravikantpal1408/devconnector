@@ -60,7 +60,7 @@ class App extends Component {
             <Navbar />
 
             <Route exact path="/" component={Landing} />
-            <div className="container" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
+            <div className="container" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
