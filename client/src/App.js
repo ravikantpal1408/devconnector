@@ -26,6 +26,7 @@ import Posts from './component/posts/Posts';
 import Post from './component/post/Post';
 import Recover from './component/recover/Recover';
 import NotFound from './component/not-found/NotFound';
+import Password from './component/forgot/Password';
 
 // check for token 
 if (localStorage.jwtToken) {
@@ -62,6 +63,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <div className="container" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
               <Route exact path="/register" component={Register} />
+              <Route exact path="/forgot-password" component={Password} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />

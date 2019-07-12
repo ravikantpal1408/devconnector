@@ -50,6 +50,7 @@ router.post('/verify', (req, res) => {
 // @desc Recover account using email
 // @access Public
 router.post('/recover', (req, res) => {
+    console.log('request =>>>>>>', res.body)
     const { errors, isValid } = validateEmailInput(req.body);
     // validation check on email 
     if (!isValid) {

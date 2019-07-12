@@ -7,7 +7,9 @@ import { registerUser } from '../../actions/authAction';
 
 
 class Register extends Component {
+
     constructor() {
+
         super();
 
         this.state = {
@@ -19,6 +21,7 @@ class Register extends Component {
 
             }
         };
+
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -58,8 +61,6 @@ class Register extends Component {
     render() {
         // getting errors from server side
         const { errors } = this.state;
-
-
 
         return (
 

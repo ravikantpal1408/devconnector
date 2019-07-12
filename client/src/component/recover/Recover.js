@@ -13,9 +13,7 @@ class Recover extends Component {
     this.state = {
       email: '',
       authId: this.props.match.params.auth,
-      errors: {
-
-      }
+      errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -86,6 +84,7 @@ class Recover extends Component {
 
 Recover.propTypes = {
   checkAccount: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 
 }
@@ -93,6 +92,7 @@ Recover.propTypes = {
 
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   errors: state.errors
 })
 

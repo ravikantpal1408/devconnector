@@ -61,6 +61,23 @@ export const logoutUser = () => dispatch => {
 
 }
 
+export const sendResetEmail = (emailObj) => dispatch => {
+    axios.post('/api/users/recover', emailObj)
+        .then(res => {
+
+            dispatch({
+                type: 'EMAIL_SENT',
+                payload: res.data
+            })
+        })
+        .catch(err => {
+
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+}
 
 // get account for password reset
 export const checkAccount = (credentials) => dispatch => {
