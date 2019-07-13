@@ -66,7 +66,10 @@ export const sendResetEmail = (emailObj) => dispatch => {
         .then(res => {
 
             dispatch({
-                type: 'EMAIL_SENT',
+                type: {
+                    email: '',
+                    errors: {}
+                },
                 payload: res.data
             })
         })
