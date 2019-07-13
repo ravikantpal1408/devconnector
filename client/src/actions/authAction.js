@@ -1,4 +1,4 @@
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import { GET_ERRORS, SET_CURRENT_USER, EMAIL_SENT } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
@@ -66,7 +66,7 @@ export const sendResetEmail = (emailObj) => dispatch => {
         .then(res => {
 
             dispatch({
-                type: 'EMAIL_SENT',
+                type: EMAIL_SENT,
                 payload: res.data
             })
         })
