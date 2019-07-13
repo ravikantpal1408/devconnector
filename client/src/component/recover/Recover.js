@@ -46,7 +46,7 @@ class Recover extends Component {
       email: this.state.email,
       authId: this.props.match.params.auth
     };
-    console.log('submit', verifyUser)
+
     // this.props.checkAccount(newUser, this.props.history);
 
   }

@@ -37,7 +37,7 @@ class Password extends Component {
         const verifyUser = {
             email: this.state.email,
         };
-        console.log('submit', verifyUser)
+
         this.props.sendResetEmail(verifyUser);
 
     }
