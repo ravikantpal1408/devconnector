@@ -4,7 +4,7 @@ const isEmpty = require('./empty');
 module.exports = function validateEmailInput(data) {
 
   let errors = {}; // error object
-  console.log('checking email', data);
+
 
   data.email = !isEmpty(data.email) ? data.email : '';
 

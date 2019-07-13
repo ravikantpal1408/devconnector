@@ -100,12 +100,15 @@ router.post('/recover', (req, res) => {
                             <p >This link will expire automatically in 1 hour </p>
                     `
                 };
-
-                transporter.sendMail(mailOptions, function (error, info) {
-                    if (error) {
-                        return res.status(400).json(error)
-                    }
-                });
+                try {
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            return res.status(400).json(error)
+                        }
+                    });
+                } catch (ex) {
+                    return res.status(400).json({ error: ex })
+                }
 
                 // setTimeout(deleteAuthToken(user[0]._id, user[0].email), 60000)
                 return res.status(200).json({ message: 'email sent' })
