@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authAction';
@@ -72,6 +73,7 @@ class Login extends Component {
                                     <input maxLength="50" type="password" className={classnames('form-control form-control-lg', { 'is-invalid': errors.password })} name="password" onChange={this.onChange} value={this.state.password} />
                                     {errors.password && (<div className="invalid-feedback"> {errors.password} </div>)}
                                 </div>
+                                <small className="form-text text-muted"><Link to="/forgot-password">Forgot password ?</Link></small>
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>

@@ -81,7 +81,7 @@ router.post('/recover', (req, res) => {
                 })
                 newRecoveryRequest.save()
                     .then(recover => {
-                        console.log('record inserted ::::: ----> ', recover)
+                        // sucessfully inserted record 
 
                     }).catch(err => console.log(err));
 
@@ -94,7 +94,7 @@ router.post('/recover', (req, res) => {
                             <h2>Greeting from Dev-Connector</h2>
                             <p>
                                 Please click here to reset your password
-                                <a href="http://mydevconnector1428.herokuapp.com/reset/password?id=${authToken}">here</a>
+                                <a href="http://mydevconnector1428.herokuapp.com/recover/${authToken}">here</a>
                             </p>
                             <br>
                             <p >This link will expire automatically in 1 hour </p>
